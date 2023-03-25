@@ -7,9 +7,21 @@ public class PlayerInput : MonoBehaviour
     // move
     void Move()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
-            Debug.Log("Fire1 Click");
+            transform.Translate(Vector3.right * Time.deltaTime);
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Translate(Vector3.left * Time.deltaTime);
+        }
+        else if (Input.GetKey(KeyCode.UpArrow))
+        {
+            transform.Translate(Vector3.up * Time.deltaTime);
+        }
+        else if (Input.GetKey(KeyCode.DownArrow))
+        {
+            transform.Translate(Vector3.down * Time.deltaTime);
         }
     }
 
