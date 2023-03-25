@@ -1,27 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class PlayerInput : MonoBehaviour
 {
+    public Vector3 pos;
+
     // move
     void Move()
     {
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Translate(Vector3.right * Time.deltaTime);
+            pos.x += 0.01f * Time.deltaTime;
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Translate(Vector3.left * Time.deltaTime);
+            pos.x -= 0.01f * Time.deltaTime;
         }
         else if (Input.GetKey(KeyCode.UpArrow))
         {
-            transform.Translate(Vector3.up * Time.deltaTime);
+            pos.y += 0.01f * Time.deltaTime;
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
-            transform.Translate(Vector3.down * Time.deltaTime);
+            pos.y -= 0.01f * Time.deltaTime;
         }
     }
 
@@ -35,5 +38,6 @@ public class PlayerInput : MonoBehaviour
     void Update()
     {
         Move();
+        transform.position = pos;
     }
 }
