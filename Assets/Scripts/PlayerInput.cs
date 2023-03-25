@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerInput : MonoBehaviour
+public class PlayerInput : MonoBehaviour
 {
     // move
     void Move()
