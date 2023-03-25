@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class playerMove : MonoBehaviour
 {
+    // move
+    void Move()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Debug.Log("Fire1 Click");
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +22,6 @@ public class playerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Move();
     }
 }
