@@ -5,39 +5,25 @@ using static UnityEditor.PlayerSettings;
 
 public class PlayerInput : MonoBehaviour
 {
-    public Vector3 pos;
+    public Vector2 inputVec;
+    public float speed;
 
-    // move
-    void Move()
+    Rigidbody2D rigid;
+
+    void Awake()
     {
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            pos.x += 0.01f * Time.deltaTime;
-        }
-        else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            pos.x -= 0.01f * Time.deltaTime;
-        }
-        else if (Input.GetKey(KeyCode.UpArrow))
-        {
-            pos.y += 0.01f * Time.deltaTime;
-        }
-        else if (Input.GetKey(KeyCode.DownArrow))
-        {
-            pos.y -= 0.01f * Time.deltaTime;
-        }
+        rigid = GetComponent<Rigidbody2D>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        Move();
-        transform.position = pos;
+        inputVec.x = Input.GetAxisRaw("Horizontal");
+        inputVec.y = Input.GetAxisRaw("Vertical");
+    }
+    
+    void FixedUpdate()
+    {
+        Vector2 nextVec = inputVec.normalized * speed * Time.fixedDeltaTime;
+        rigid.MovePosition(rigid.position+nextVec);
     }
 }
