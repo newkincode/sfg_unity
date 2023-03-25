@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: water_farmland
+  m_Name: MapTileSet_2
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 4f3b8fb3eb4f7d2448e1b036f7dc48e1, type: 3}
+  m_Sprite: {fileID: -1252253058, guid: 93f75bb3a56c87a46b49477af2773a6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
