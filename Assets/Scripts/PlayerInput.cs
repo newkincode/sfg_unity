@@ -20,6 +20,7 @@ public class PlayerInput : MonoBehaviour
         maxY = 9;
         minX = -29.5f;
         maxX = 9.5f;
+        speed = 1.5f;
     }
 
     void Awake()
@@ -38,6 +39,12 @@ public class PlayerInput : MonoBehaviour
         rigid.MovePosition(rigid.position+nextVec);
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) { speed = 4; }
+        if (Input.GetKeyUp(KeyCode.Space)) { speed = 1.5f; }
+    }
+
     void LimitToMove()
     {
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, minX, maxX),Mathf.Clamp(transform.position.y, minY, maxY));
@@ -48,4 +55,6 @@ public class PlayerInput : MonoBehaviour
         // Step 3. 이동 제한
         LimitToMove();
     }
+
+    // 나가기 막기 출처 : https://dunkugamedev.tistory.com/14
 }
