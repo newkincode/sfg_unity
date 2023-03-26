@@ -1,27 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class playerInput : MonoBehaviour
+public class PlayerInput : MonoBehaviour
 {
-    // move
-    void Move()
+    public Vector2 inputVec;
+    public float speed;
+
+    Rigidbody2D rigid;
+
+    void Awake()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Debug.Log("Fire1 Click"); //
-        }
+        rigid = GetComponent<Rigidbody2D>();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void OnMove(InputValue value)
     {
-        
+        inputVec = value.Get<Vector2>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        Move();
+        Vector2 nextVec = inputVec * speed * Time.fixedDeltaTime;
+        rigid.MovePosition(rigid.position+nextVec);
     }
 }
