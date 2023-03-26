@@ -9,7 +9,7 @@ public class playerInput : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            Debug.Log("Fire1 Click");
+            Debug.Log("Fire1 Click"); //
         }
     }
 
